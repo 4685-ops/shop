@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+    <title>添加广告位</title>
+    {include file="public/common_css" /}
+</head>
+<body class="sticky-header">
+<section>
+    {include file="public/left" /}
+    <!-- main content start-->
+    <div class="main-content">
+        {include file="public/header" /}
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        {$breadCrumbsTwo}
+                    </header>
+                    <div class="panel-body">
+                        <div class=" form">
+                            <form id="addSetBannerList" class="cmxform form-horizontal adminex-form" method="post" action="{:Url('/banner/doAddSetBannerList')}"  enctype="multipart/form-data"  novalidate="novalidate">
+                                <input type="hidden" name="banner_id" value="{$bannerInfo['id']}">
+                                <div class="form-group ">
+                                    <label class="control-label col-lg-2">标题 :</label>
+                                    <div class="col-lg-3">
+                                        <input class="form-control name" name="name" type="text" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="control-label col-lg-2">描述 :</label>
+                                    <div class="col-lg-3">
+                                        <input class="form-control description" type="text" name="description">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="control-label col-lg-2">跳转类型 :</label>
+                                    <div class="col-lg-3">
+                                        <select name="type" class="form-control m-bot15">
+                                            <option value="0">无导向</option>
+                                            <option value="1">导向商品</option>
+                                            <option value="2">导向专题</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group type_nav hide">
+                                    <label class="control-label col-lg-2">导向关联(* 执行关键字，根据不同的type含义不同) :</label>
+                                    <div class="col-lg-3">
+                                        <input class="form-control description key_word" name="key_word" type="text" name="description">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputFile2" class="col-lg-2 col-sm-2 control-label">banner图</label>
+                                    <div class="col-lg-10">
+                                        <input type="file" class="image" name="image" id="exampleInputFile2">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-lg-offset-2 col-lg-10">
+                                        <button class="btn btn-primary addSetBannerList" type="button">保存</button>
+                                    </div>
+                                </div>
+
+                                <div class="login-wrap error-tips hide"></div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        {include file="public/footer" /}
+    </div>
+    <!-- main content end-->
+</section>
+{include file="public/common_js" /}
+<script src="__PUBLIC__admin/js/banner.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!-- left side start-->
+<div class="left-side sticky-left-side">
+
+    <!--logo and iconic logo start-->
+    <div class="logo">
+        <a href="/admin/index"><img src="__PUBLIC__admin/images/logo.png" alt=""></a>
+    </div>
+
+    <div class="logo-icon text-center">
+        <a href="/admin/index"><img src="__PUBLIC__admin/images/logo_icon.png" alt=""></a>
+    </div>
+    <!--logo and iconic logo end-->
+
+    <div class="left-side-inner">
+
+        <!--sidebar nav start-->
+        <ul class="nav nav-pills nav-stacked custom-nav">
+            <li {if condition="($nav == 1)"}class="active"{/if}><a href="/admin/index"><i class="fa fa-home"></i> <span>首页</span></a></li>
+
+            <li class="menu-list {if condition="($nav == 2)"}active{/if}"><a href=""><i class="fa fa-laptop"></i> <span>Banner管理</span></a>
+                <ul class="sub-menu-list">
+                    <li {if condition="($navTwo == 21)"}class="active"{/if}><a href="{:Url('/banner/bannerList')}"> Banner广告位列表</a></li>
+                </ul>
+            </li>
+
+            <li><a href="login.html"><i class="fa fa-sign-in"></i> <span>退出</span></a></li>
+
+        </ul>
+        <!--sidebar nav end-->
+
+    </div>
+</div>
+<!-- left side end-->

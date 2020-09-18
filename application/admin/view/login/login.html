@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+    <title>登录</title>
+    <link href="__PUBLIC__admin/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__admin/css/style-responsive.css" rel="stylesheet">
+    <link href="__PUBLIC__admin/css/index.css" rel="stylesheet">
+</head>
+<body class="login-body">
+<div class="container">
+    <form class="form-signin" >
+        <div class="form-signin-heading text-center">
+            <h1 class="sign-title">登录</h1>
+            <img src="__PUBLIC__admin/images/login-logo.png" alt=""/>
+        </div>
+        <div class="login-wrap">
+            <input type="text" name="username" class="username form-control normal-input" placeholder="用户名" autofocus>
+            <input type="password" name="password" class="password form-control normal-input" placeholder="密码">
+            <div class="code">
+                <input type="text" name="verifyCode" class="verifyCode form-control normal-input" placeholder="图形验证码">
+                <img src="/admin/getVerifyCode" class="changeVerify">
+            </div>
+            <button class="btn btn-lg btn-login btn-block" type="button" id="login"><i class="fa fa-check"></i></button>
+        </div>
+
+        <div class="login-wrap error-tips hide">*登录失败</div>
+    </form>
+
+</div>
+<script src="__PUBLIC__admin/js/jquery-1.10.2.min.js"></script>
+<script src="__PUBLIC__admin/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__admin/js/modernizr.min.js"></script>
+<script src="__PUBLIC__admin/js/common.js"></script>
+<script src="__PUBLIC__admin/js/login.js"></script>
+<script>
+    $(function () {
+        $(".changeVerify").click(function () {
+            let timeStamp = new Date().getTime();
+            src = "/admin/getVerifyCode?timeStamp=" + timeStamp;
+            $(this).attr('src', src)
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="keywords"
+          content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+    <title>设置 {$bannerInfo['name']} Banner广告位内容</title>
+    {include file="public/common_css" /}
+</head>
+
+<body class="sticky-header">
+
+<section>
+    {include file="public/left" /}
+    <!-- main content start-->
+    <div class="main-content">
+        {include file="public/header" /}
+
+        <section class="panel">
+            <header class="panel-heading panel-body">
+                Banner广告位列表
+                <span class="pull-right">
+                    <a href="{:Url('/banner/addSetBannerList',['id'=>$bannerInfo['id']])}"><button class="btn btn-info" type="button">添加</button></a>
+                </span>
+            </header>
+
+
+            <div class="panel-body">
+                <form id="search" action="{:Url('/banner/setBannerList')}" method="get">
+                    <div class="form-group col-lg-2" style="display: flex;">
+                        <input type="text" name="name" value="{$searchName}" class="form-control name"  placeholder="请输入标题">
+                        <button class="btn btn-search btn-so-search" type="button"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
+                <div class="login-wrap error-tips hide"></div>
+                <section id="flip-scroll">
+
+                    <table class="table table-bordered table-striped table-condensed cf">
+                        <thead class="cf">
+                        <tr>
+                            <th>id</th>
+                            <th>标题</th>
+                            <th>描述</th>
+                            <th>跳转类型</th>
+                            <th>执行关键字</th>
+                            <th>图片</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {if condition="$list['data'] neq ''"}
+                        {volist name="list.data" id="vo"}
+                        <tr>
+                            <td>{$vo.id}</td>
+                            <td>{$vo.name}</td>
+                            <td class="numeric">{$vo.description}</td>
+                            <td class="numeric">{$vo.type}</td>
+                            <td class="numeric">{$vo.key_word}</td>
+                            <td class="numeric">{$vo.img_id}</td>
+                            <td class="numeric">
+                                <a href="">
+                                    <button class="btn btn-danger" type="button">编辑</button>
+                                </a>
+                                <a href="">
+                                    <button class="btn btn-info" type="button">删除</button>
+                                </a>
+
+                            </td>
+                        </tr>
+                        {/volist}
+                        {/if}
+                        </tbody>
+                    </table>
+                    {if condition="$list['data'] neq ''"}
+                    <div>
+                        {$page}
+                    </div>
+                    {/if}
+                </section>
+            </div>
+
+        </section>
+
+        {include file="public/footer" /}
+    </div>
+    <!-- main content end-->
+</section>
+{include file="public/common_js" /}
+<script src="__PUBLIC__admin/js/banner.js"></script>
+</body>
+</html>
